@@ -1,0 +1,31 @@
+	<nav class="navbar navbar-dark bg-primary fixed-top">
+		<a class="navbar-brand" routerLink="user/:uid"><b>Profile</b></a>
+		<a routerLink="#" class="sw-color-white" ><i class="fas fa-check"></i></a>
+	</nav>
+	<div class="container-fluid">
+		<form>
+			<div class="form-group">
+				<label for="username"><b>Username</b></label>
+				<input class="form-control" type="text" name="username" placeholder="example">
+			</div>
+			<div class="form-group">
+				<label for="email"><b>Email</b></label>
+				<input class="form-control" type="email" name="email" placeholder="example@email.com">
+			</div>
+			<div class="form-group">
+				<label for="first-name"><b>First Name</b></label>
+				<input class="form-control" type="text" name="first-name" placeholder="Alice">
+			</div>
+			<div class="form-group">
+				<label for="last-name"><b>Last Name</b></label>
+				<input class="form-control" type="text" name="last-name" placeholder="Wang">
+			</div>
+			<a class="btn btn-primary btn-block" routerLink="/user/:uid/website">Websites</a>
+			<a class="btn btn-danger btn-block" routerLink="/login">Logout</a>
+		</form>
+	</div>
+	<nav class="navbar navbar-dark bg-primary fixed-bottom">
+		<div class="sw-full-width">
+			<a routerLink="user/:uid" class="sw-color-white float-right" ><i class="fas fa-user"></i></a>
+		</div>
+	</nav>
