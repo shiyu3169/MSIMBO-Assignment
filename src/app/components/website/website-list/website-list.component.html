@@ -1,32 +1,32 @@
 <nav class="navbar fixed-top navbar-dark bg-primary">
-		<a class="sw-color-white" href="../User/profile.html"><i class="fas fa-chevron-left"></i></a>
+		<a class="sw-color-white" routerLink="/user/:uid"><i class="fas fa-chevron-left"></i></a>
 		<div class="sw-90-width">
-			<a class="navbar-brand float-left" href="website-list.html"><b>Websites</b></a>
+			<a class="navbar-brand float-left" routerLink="/user/:uid/website"><b>Websites</b></a>
 		</div>
-		<a class="sw-color-white" href="website-new.html"><i class="fas fa-plus"></i></a>
+		<a class="sw-color-white" routerLink="/user/:uid/website/new"><i class="fas fa-plus"></i></a>
 	</nav>
 	<div class="container-fluid">
 		<ul class="list-group">
 			<li class="list-group-item">
-				<a href="../Page/page-list.html">Address Book App</a>
-				<a class="float-right" href="website-edit.html"><i class="fas fa-cog"></i></a>
+				<a routerLink="/user/:uid/website/:wid/page">Address Book App</a>
+				<a class="float-right" routerLink="/user/:uid/website/:wid"><i class="fas fa-cog"></i></a>
 			</li>
 			<li class="list-group-item">
-				<a href="../Page/page-list.html">Blogger</a>
-				<a class="float-right" href="website-edit.html"><i class="fas fa-cog"></i></a>
+				<a routerLink="/user/:uid/website/:wid/page">Blogger</a>
+				<a class="float-right" routerLink="/user/:uid/website/:wid"><i class="fas fa-cog"></i></a>
 			</li>
 			<li class="list-group-item">
-				<a href="../Page/page-list.html">Blogging App</a>
-				<a class="float-right" href="website-edit.html"><i class="fas fa-cog"></i></a>
+				<a routerLink="/user/:uid/website/:wid/page">Blogging App</a>
+				<a class="float-right" routerLink="/user/:uid/website/:wid"><i class="fas fa-cog"></i></a>
 			</li>
 			<li class="list-group-item">
-				<a href="../Page/page-list.html">Script Testing App</a>
-				<a class="float-right" href="website-edit.html"><i class="fas fa-cog"></i></a>
+				<a routerLink="/user/:uid/website/:wid/page">Script Testing App</a>
+				<a class="float-right" routerLink="/user/:uid/website/:wid"><i class="fas fa-cog"></i></a>
 			</li>
 		</ul>
 	</div>
 	<footer class="navbar fixed-bottom navbar-dark bg-primary">
 		<div class="sw-full-width">
-			<a class="navbar-brand float-right" href="../User/profile.html"><i class="fas fa-user"></i></a>
+			<a class="navbar-brand float-right" routerLink="/user/:uid"><i class="fas fa-user"></i></a>
 		</div>
 	</footer>

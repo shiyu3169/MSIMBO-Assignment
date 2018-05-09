@@ -1,9 +1,9 @@
 <nav class="navbar fixed-top navbar-light sw-bg-grey">
-		<a class="sw-color-black" href="page-list.html"><i class="fas fa-chevron-left"></i></a>
+		<a class="sw-color-black" routerLink="/user/:uid/website/:wid/page"><i class="fas fa-chevron-left"></i></a>
 		<div class="sw-90-width">
-			<a class="navbar-brand float-left" href="page-new.html"><b>New Page</b></a>
+			<a class="navbar-brand float-left" routerLink="/user/:uid/website/:wid/page/new"><b>New Page</b></a>
 		</div>
-		<a href="page-list.html" class="sw-color-black float-right" ><i class="fas fa-check"></i></a>
+		<a routerLink="/user/:uid/website/:wid/page" class="sw-color-black float-right" ><i class="fas fa-check"></i></a>
 	</nav>
 	<div class="container-fluid">
 		<form>
@@ -15,12 +15,12 @@
 				<label><b>Title</b></label>
 				<input class="form-control" type="text" name="page-title" placeholder="Enter your page title...">
 			</div>
-			<a class="btn btn-success btn-block" href="page-list.html">Submit</a>
-			<a class="btn btn-danger btn-block" href="page-list.html">Cancel</a>
+			<a class="btn btn-success btn-block" routerLink="/user/:uid/website/:wid/page">Submit</a>
+			<a class="btn btn-danger btn-block" routerLink="/user/:uid/website/:wid/page">Cancel</a>
 		</form>
 	</div>
 	<footer class="navbar fixed-bottom navbar-light sw-bg-grey">
 		<div class="sw-full-width">
-			<a class="navbar-brand float-right" href="../User/profile.html"><i class="fas fa-user"></i></a>
+			<a class="navbar-brand float-right" routerLink="/user/:uid"><i class="fas fa-user"></i></a>
 		</div>
 	</footer>

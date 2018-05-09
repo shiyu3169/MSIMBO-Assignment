@@ -1,5 +1,6 @@
 import {Routes, RouterModule} from "@angular/router";
 import {ModuleWithProviders} from "@angular/core";
+
 import {LoginComponent} from "./components/user/login/login.component";
 import {RegisterComponent} from "./components/user/register/register.component";
 import {ProfileComponent} from "./components/user/profile/profile.component"
@@ -20,8 +21,15 @@ const APP_ROUTES : Routes = [
   { path : 'login', component : LoginComponent},
   { path : 'register', component: RegisterComponent},
   { path : 'user/:uid' , component: ProfileComponent},
-  { path : 'user/:uid/website' , component: WebsiteListComponent}
-  // so on
+  { path : 'user/:uid/website' , component: WebsiteListComponent},
+  { path : 'user/:uid/website/new' , component: WebsiteNewComponent},
+  { path : 'user/:uid/website/:wid' , component: WebsiteEditComponent},
+  { path : 'user/:uid/website/:wid/page' , component: PageListComponent},
+  { path : 'user/:uid/website/:wid/page/new' , component: PageNewComponent},
+  { path : 'user/:uid/website/:wid/page/:pid' , component: PageEditComponent},
+  { path : 'user/:uid/website/:wid/page/:pid/widget' , component: WidgetListComponent},
+  { path : 'user/:uid/website/:wid/page/:pid/widget/new' , component: WidgetChooserComponent},
+  { path : 'user/:uid/website/:wid/page/:pid/widget/:wgid' , component: WidgetEditComponent}
 ];
 
 // Export the routes as module providers

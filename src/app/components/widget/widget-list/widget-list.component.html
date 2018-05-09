@@ -1,17 +1,17 @@
 <!-- Navbar -->
 	<nav class="navbar fixed-top navbar-light sw-bg-grey">
-		<a class="sw-color-black" href="../Page/page-list.html"><i class="fas fa-chevron-left"></i></a>
+		<a class="sw-color-black" routerLink="/user/:uid/website/:wid/page"><i class="fas fa-chevron-left"></i></a>
 		<div class="sw-90-width">
-			<a class="navbar-brand float-left" href="widget-list.html"><b>Widgets</b></a>
+			<a class="navbar-brand float-left" routerLink="/user/:uid/website/:wid/page/:pid/widget"><b>Widgets</b></a>
 		</div>
-		<a class="sw-color-black" href="widget-chooser.html"><i class="fas fa-plus"></i></a>
+		<a class="sw-color-black" routerLink="/user/:uid/website/:wid/page/:pid/widget/new"><i class="fas fa-plus"></i></a>
 	</nav>
 	<!-- Widgets -->
 	<div class="container-fluid">
 		<!-- Heading -->
 		<div>
 			<div class="sw-absolute-right">
-				<a href="widget-heading.html"><i class="fas fa-cog"></i></a>
+				<a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid"><i class="fas fa-cog"></i></a>
 				<a href="#"><i class="fas fa-bars"></i></a>
 			</div>
 			<h3>Hello</h3>
@@ -19,7 +19,7 @@
 		<!-- Heading -->
 		<div>
 			<div class="sw-absolute-right">
-				<a href="widget-heading.html"><i class="fas fa-cog"></i></a>
+				<a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid"><i class="fas fa-cog"></i></a>
 				<a href="#"><i class="fas fa-bars"></i></a>
 			</div>
 			<h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -32,7 +32,7 @@
 		<!-- Image -->
 		<div>
 			<div class="sw-absolute-right">
-				<a href="widget-image.html"><i class="fas fa-cog"></i></a>
+				<a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid"><i class="fas fa-cog"></i></a>
 				<a href="#"><i class="fas fa-bars"></i></a>
 			</div>
 			<img width="100%" class="d-lg-none" src="https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg">
@@ -41,7 +41,7 @@
 		<!-- Heading -->
 		<div>
 			<div class="sw-absolute-right">
-				<a href="widget-heading.html"><i class="fas fa-cog"></i></a>
+				<a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid"><i class="fas fa-cog"></i></a>
 				<a href="#"><i class="fas fa-bars"></i></a>
 			</div>
 			<h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -54,7 +54,7 @@
 		<!-- Heading -->
 		<div>
 			<div class="sw-absolute-right">
-				<a href="widget-heading.html"><i class="fas fa-cog"></i></a>
+				<a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid"><i class="fas fa-cog"></i></a>
 				<a href="#"><i class="fas fa-bars"></i></a>
 			</div>
 			<h5>Bye ByeByeByeByeByeByeByeByeByeByeBye</h5>
@@ -62,7 +62,7 @@
 		<!-- Youtube -->
 		<div>
 			<div class="sw-absolute-right">
-				<a href="widget-youtube.html"><i class="fas fa-cog"></i></a>
+				<a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid"><i class="fas fa-cog"></i></a>
 				<a href="#"><i class="fas fa-bars"></i></a>
 			</div>
 			<div class="d-lg-none embed-responsive embed-responsive-16by9">
@@ -75,7 +75,7 @@
 		<!-- heading -->
 		<div>
 			<div class="sw-absolute-right">
-				<a href="widget-heading.html"><i class="fas fa-cog"></i></a>
+				<a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid"><i class="fas fa-cog"></i></a>
 				<a href="#"><i class="fas fa-bars"></i></a>
 			</div>
 			<h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -91,6 +91,6 @@
 		<div class="sw-full-width">
 			<a href="#" class="btn btn-primary">publish</a>
 			<a href="#" class="btn btn-warning">Preview</a>
-			<a class="navbar-brand float-right" href="../User/profile.html"><i class="fas fa-user"></i></a>
+			<a class="navbar-brand float-right" routerLink="/user/:uid"><i class="fas fa-user"></i></a>
 		</div>
 	</footer>

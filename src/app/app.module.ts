@@ -20,6 +20,8 @@ import { WidgetYoutubeComponent } from './components/widget/widget-edit/widget-y
 
 import { Routing } from './app.routing';
 
+import { UserService } from './services/user.service.client';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +45,7 @@ import { Routing } from './app.routing';
     BrowserModule,
     Routing
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
