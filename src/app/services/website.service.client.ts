@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Website } from '../models/website.model.client';
 
 // injecting service into module
 @Injectable()
@@ -6,24 +7,25 @@ import { Injectable } from '@angular/core';
 export class WebsiteService {
 
   constructor() { }
-	websites = [
+	websites: Website[] = [
 	  { _id: "123", name: "Facebook", developerId: "456", description: "Lorem" },
 	  { _id: "234", name: "Tweeter",  developerId: "456", description: "Lorem" },
 	  { _id: "456", name: "Gizmodo",   developerId: "456", description: "Lorem" },
 	  { _id: "890", name: "Go", developerId: "123", description: "Lorem" },
 	  { _id: "567", name: "Tic Tac Toe", developerId: "123", description: "Lorem" },
 	  { _id: "678", name: "Checkers", developerId: "123", description: "Lorem" },
-	  { _id: "789", name: "Chess", developerId: "234", description: "Lorem" }
+	  { _id: "789", name: "Chess", developerId: "234", description: "Lorem" },
+	  // new Website("789", "Chess", "234", "Lorem")
 	];
 
-	createWebsite(userId, website) {
+	createWebsite(userId: String, website: Website) {
 		website._id = Math.floor(Math.random() * 10000).toString();
 		website.devloperId = userId;
 		this.websites.push(website);
 		return website;
 	}
 
-	findWebsitesByUser(userId){
+	findWebsitesByUser(userId: String){
 		var result = [];
 		for (let i = 0;i<this.websites.length;i++){
 			if (this.websites[i].developerId === userId) {
@@ -33,7 +35,7 @@ export class WebsiteService {
 		return result;
 	}
 
-	findWebsiteById(websiteId) {
+	findWebsiteById(websiteId: String) {
 		for (let i = 0;i<this.websites.length;i++){
 			if (this.websites[i]._id === websiteId) {
 				return this.websites[i];
@@ -41,14 +43,14 @@ export class WebsiteService {
 		}
 	}
 
-	updateWebsite(websiteId, website) {
+	updateWebsite(websiteId: String, website: Website) {
 		var oldWeb = this.findWebsiteById(websiteId);
 		var index = this.websites.indexOf(oldWeb);
 		this.websites[index].name = website.name;
 		this.websites[index].description = website.description;
 	}
 
-	deleteWebsite(websiteId) {
+	deleteWebsite(websiteId: String) {
 		var web = this.findWebsiteById(websiteId);
 		var index = this.websites.indexOf(web);
 		this.websites.splice(index, 1);
