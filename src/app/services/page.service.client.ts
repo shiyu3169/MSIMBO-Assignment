@@ -16,7 +16,7 @@ export class PageService {
 
 
 	// adds the page parameter instance to the local pages array. The new page's websiteId is set to the websiteId parameter
-	createPage(websiteId : String, page : Page){
+	createPage(websiteId : string, page : Page){
 		page._id = Math.floor(Math.random() * 10000).toString();
 		page.websiteId = websiteId;
 		this.pages.push(page);
@@ -24,7 +24,7 @@ export class PageService {
 	}
 
 	// retrieves the pages in local pages array whose websiteId matches the parameter websiteId
-	findPageByWebsiteId(websiteId : String) {
+	findPageByWebsiteId(websiteId : string) {
 		let result = [];
 		for(let i =0; i < this.pages.length;i++){
 			if(this.pages[i].websiteId === websiteId) {
@@ -36,7 +36,7 @@ export class PageService {
 	}
 
 	//  retrieves the page in local pages array whose _id matches the pageId parameter
-	findPageById(pageId : String) {
+	findPageById(pageId : string) {
 		for(let i=0;i<this.pages.length;i++) {
 			if(this.pages[i]._id === pageId) {
 				return this.pages[i];
@@ -45,7 +45,7 @@ export class PageService {
 	}
 
 	// updates the page in local pages array whose _id matches the pageId parameter
-	updatePage(pageId : String, page: Page) {
+	updatePage(pageId : string, page: Page) {
 		let oldPage = this.findPageById(pageId);
 		const index = this.pages.indexOf(oldPage);
 		this.pages[index].name = page.name;
@@ -53,7 +53,7 @@ export class PageService {
 	}
 
 	//  removes the page from local pages array whose _id matches the pageId parameter
-	deletePage(pageId : String) {
+	deletePage(pageId : string) {
 		let oldPage = this.findPageById(pageId);
 		const index = this.pages.indexOf(oldPage);
 		this.pages.splice(index, 1);
