@@ -1,16 +1,25 @@
 <div class="container-fluid">
 		<h1>Register</h1>
-		<form>
+		<div class="alert alert-danger" *ngIf="usernameError">
+			Username is already taken, please try another one.		
+		</div>
+		<div class="alert alert-danger" *ngIf="passwordError">
+			Two passwords are not matched!			
+		</div>
+		<form (ngSubmit)="register()" #f="ngForm">
 			<div class="form-group">
-				<input class="form-control" type="text" name="username" placeholder="Username">
+				<input class="form-control" type="text" name="username" required ngModel #username="ngModel" placeholder="Username">
 			</div>
+			<span class="alert" *ngIf="username.invalid && username.touched">Please enter username!</span>
 			<div class="form-group">
-				<input class="form-control" type="password" name="password" placeholder="Password">
+				<input class="form-control" type="password" name="password" required  ngModel #password="ngModel" placeholder="Password">
 			</div>
+			<span class="alert" *ngIf="password.invalid && password.touched">Please enter password!</span>
 			<div class="form-group">
-				<input class="form-control" type="password" name="verify-password" placeholder="Verify Password">
+				<input class="form-control" type="password" name="verifyPassword" required ngModel #verifyPassword="ngModel" placeholder="Verify Password">
 			</div>
-			<a class="btn btn-primary btn-block" routerLink="/user/:uid">Register</a>
-			<a class="btn btn-danger btn-block" routerLink="/login">Cancel</a>
+			<span class="alert" *ngIf="verifyPassword.invalid && verifyPassword.touched">Please verify password!</span>
+			<button class="btn btn-primary btn-block" type="submit" [disabled]="f.invalid">Register</button>
+			<button class="btn btn-danger btn-block" routerLink="/login">Cancel</button>
 		</form>
 	</div>

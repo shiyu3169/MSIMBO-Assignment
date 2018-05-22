@@ -1,26 +1,28 @@
 	<nav class="navbar navbar-dark bg-primary fixed-top">
 		<a class="navbar-brand" routerLink="user/:uid"><b>Profile</b></a>
-		<a routerLink="#" class="sw-color-white" ><i class="fas fa-check"></i></a>
+		<button class="btn sw-color-white sw-button-to-a" type="submit" form="profileForm" [disabled]="f.invalid"><i class="fas fa-check"></i></button>
 	</nav>
 	<div class="container-fluid">
-		<form>
+		<div *ngIf="usernameTaken" class="alert alert-danger">Username is taken, please try another one.</div>
+		<div *ngIf="submitSuccess" class="alert alert-success">Update successfully!</div>
+		<form (ngSubmit)="update()" id="profileForm" #f="ngForm">
 			<div class="form-group">
 				<label for="username"><b>Username</b></label>
-				<input class="form-control" type="text" name="username" placeholder="example">
+				<input class="form-control" type="text" name="username" required ngModel="{{user.username}}" #username="ngModel" placeholder="example">
 			</div>
 			<div class="form-group">
 				<label for="email"><b>Email</b></label>
-				<input class="form-control" type="email" name="email" placeholder="example@email.com">
+				<input class="form-control" type="email" name="email" ngModel="{{user.email}}" #email="ngModel" placeholder="example@email.com">
 			</div>
 			<div class="form-group">
-				<label for="first-name"><b>First Name</b></label>
-				<input class="form-control" type="text" name="first-name" placeholder="Alice">
+				<label for="firstName"><b>First Name</b></label>
+				<input class="form-control" type="text" name="firstName" ngModel="{{user.firstName}}" #firstName="ngModel" placeholder="Alice">
 			</div>
 			<div class="form-group">
-				<label for="last-name"><b>Last Name</b></label>
-				<input class="form-control" type="text" name="last-name" placeholder="Wang">
+				<label for="lastName"><b>Last Name</b></label>
+				<input class="form-control" type="text" name="lastName" ngModel="{{user.lastName}}" #lastname="ngModel" placeholder="Wang">
 			</div>
-			<a class="btn btn-primary btn-block" routerLink="/user/:uid/website">Websites</a>
+			<a class="btn btn-primary btn-block" routerLink="/user/{{uid}}/website">Websites</a>
 			<a class="btn btn-danger btn-block" routerLink="/login">Logout</a>
 		</form>
 	</div>
