@@ -1,26 +1,35 @@
 <nav class="navbar fixed-top navbar-light sw-bg-grey">
-		<a class="sw-color-black" routerLink="/user/:uid/website/:wid/page"><i class="fas fa-chevron-left"></i></a>
-		<div class="sw-90-width">
-			<a class="navbar-brand float-left" routerLink="/user/:uid/website/:wid/page/new"><b>New Page</b></a>
-		</div>
-		<a routerLink="/user/:uid/website/:wid/page" class="sw-color-black float-right" ><i class="fas fa-check"></i></a>
-	</nav>
-	<div class="container-fluid">
-		<form>
-			<div class="form-group">
-				<label><b>Name</b></label>
-				<input class="form-control" type="text" name="page-name" placeholder="Enter your page name...">
-			</div>
-			<div class="form-group">
-				<label><b>Title</b></label>
-				<input class="form-control" type="text" name="page-title" placeholder="Enter your page title...">
-			</div>
-			<a class="btn btn-success btn-block" routerLink="/user/:uid/website/:wid/page">Submit</a>
-			<a class="btn btn-danger btn-block" routerLink="/user/:uid/website/:wid/page">Cancel</a>
-		</form>
+	<a class="sw-color-black" routerLink="/user/{{uid}}/website/{{wid}}/page"><i class="fas fa-chevron-left"></i></a>
+	<div class="sw-90-width">
+		<a class="navbar-brand float-left" routerLink="/user/{{uid}}/website/{{wid}}/page/new"><b>New Page</b></a>
 	</div>
-	<footer class="navbar fixed-bottom navbar-light sw-bg-grey">
-		<div class="sw-full-width">
-			<a class="navbar-brand float-right" routerLink="/user/:uid"><i class="fas fa-user"></i></a>
+	<button [disabled]="f.invalid" type="submit" form="pageForm" class="btn sw-button-to-a sw-color-black float-right" >
+		<i class="fas fa-check"></i>
+	</button>
+</nav>
+
+
+<div class="container-fluid">
+	<form id="pageForm" (ngSubmit)="create()" #f="ngForm">
+		<div class="form-group">
+			<label><b>Name</b></label>
+			<input class="form-control" required ngModel #name="ngModel" type="text" name="name" placeholder="Enter your page name...">
 		</div>
-	</footer>
+
+		<div *ngIf="name.invalid && name.touched" class="alert alert-warning">Name cannot be empty</div>
+
+		<div class="form-group">
+			<label><b>Description</b></label>
+			<input class="form-control" type="text" name="description" ngModel #description="ngModel" placeholder="Enter your page description...">
+		</div>
+
+		<button [disabled]="f.invalid" class="btn btn-success btn-block" type="submit">Submit</button>
+		<a class="btn btn-danger btn-block" routerLink="/user/{{uid}}/website/{{wid}}/page">Cancel</a>
+
+	</form>
+</div>
+<footer class="navbar fixed-bottom navbar-light sw-bg-grey">
+	<div class="sw-full-width">
+		<a class="navbar-brand float-right" routerLink="/user/{{uid}}"><i class="fas fa-user"></i></a>
+	</div>
+</footer>
