@@ -48,3 +48,7 @@ a:hover{
 .sw-button-to-a{
 	background-color: transparent;
 }
+
+.sw-front{
+	z-index: 2
+}
