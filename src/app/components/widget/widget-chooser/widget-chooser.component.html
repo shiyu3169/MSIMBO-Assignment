@@ -1,20 +1,20 @@
 <!-- Navbar -->
 	<nav class="navbar fixed-top navbar-light sw-bg-grey">
-		<a class="sw-color-black" routerLink="/user/:uid/website/:wid/page/:pid/widget"><i class="fas fa-chevron-left"></i></a>
+		<a class="sw-color-black" routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"><i class="fas fa-chevron-left"></i></a>
 		<div class="sw-95-width">
-			<a class="navbar-brand float-left" routerLink="/user/:uid/website/:wid/page/:pid/widget/new"><b>Choose Widget</b></a>
+			<a class="navbar-brand float-left" routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new"><b>Choose Widget</b></a>
 		</div>
 	</nav>
 	<div class="container-fluid">
 		<ul class="list-group list-group-flush">
-			<li class="list-group-item"><a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid">Header</a></li>
+			<li class="list-group-item"><button class="btn sw-button-to-a" (click)="create('HEADING')">Header</button></li>
 			<li class="list-group-item"><a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid">Label</a></li>
 			<li class="list-group-item"><a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid">HTML</a></li>
 			<li class="list-group-item"><a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid">Text Input</a></li>
 			<li class="list-group-item"><a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid">Link</a></li>
 			<li class="list-group-item"><a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid">Button</a></li>
-			<li class="list-group-item"><a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid">Image</a></li>
-			<li class="list-group-item"><a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid">YouTube</a></li>
+			<li class="list-group-item"><button class="btn sw-button-to-a" (click)="create('IMAGE')">Image</button></li>
+			<li class="list-group-item"><button class="btn sw-button-to-a" (click)="create('YOUTUBE')">YouTube</button></li>
 			<li class="list-group-item"><a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid">Data Table</a></li>
 			<li class="list-group-item"><a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid">Repeater</a></li>
 		</ul>
@@ -22,6 +22,6 @@
 	<!-- footer -->
 	<footer class="navbar fixed-bottom navbar-light sw-bg-grey">
 		<div class="sw-full-width">
-			<a class="navbar-brand float-right" routerLink="/user/:uid"><i class="fas fa-user"></i></a>
+			<a class="navbar-brand float-right" routerLink="/user/{{uid}}"><i class="fas fa-user"></i></a>
 		</div>
 	</footer>
