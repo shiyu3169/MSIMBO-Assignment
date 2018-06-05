@@ -22,6 +22,7 @@ export class ProfileComponent implements OnInit {
   oldUsername: string;
   usernameTaken: boolean;
   submitSuccess: boolean;
+  aUser: User;
 
   constructor(private activatedRoute: ActivatedRoute, private userService: UserService) { }
 
@@ -35,15 +36,28 @@ export class ProfileComponent implements OnInit {
   	// 		this.firstName = this.user.firstName;
   	// 		this.lastName = this.user.lastName;
   	// }.bind(this));
+    this.usernameTaken = false;
+    this.submitSuccess = false;
     this.activatedRoute.params.subscribe(
       params =>  {
         this.uid = params['uid'];
-        this.user = this.userService.findUserById(this.uid);
-        this.username = this.user.username;
-        this.email = this.user.email;
-        this.firstName = this.user.firstName;
-        this.lastName = this.user.lastName;
-        this.oldUsername = this.user.username;
+        // console.log(this.uid);
+        this.userService.findUserById(this.uid).subscribe(
+          (user: User) => {
+            this.user = user;
+            this.username = this.user.username;
+            this.email = this.user.email;
+            this.firstName = this.user.firstName;
+            this.lastName = this.user.lastName;
+            this.oldUsername = this.user.username;
+          }
+        );
+        // this.user = this.userService.findUserById(this.uid);
+        // this.username = this.user.username;
+        // this.email = this.user.email;
+        // this.firstName = this.user.firstName;
+        // this.lastName = this.user.lastName;
+        // this.oldUsername = this.user.username;
       })
   }
 
@@ -54,23 +68,31 @@ export class ProfileComponent implements OnInit {
   	this.lastName = this.profileForm.value.lastName;
 
     //check if the new username was taken or the username was not changed
-    const aUser: User = this.userService.findUserByUsername(this.username);
-    if(aUser && this.oldUsername !== this.username){
-      this.usernameTaken = true;
-      this.submitSuccess = false;
+    this.userService.findUserByUsername(this.username).subscribe(
+       (user:User) => {
+           this.aUser = user;
+       }
+    );
+
+    if(this.aUser && this.oldUsername !== this.username){
+        this.usernameTaken = true;
+        this.submitSuccess = false;
     } else {
-      const updatedUser: User = {
-        _id: this.user._id,
-        username: this.username,
-        password: this.user.password,
-        firstName: this.firstName,
-        lastName: this.lastName,
-        email: this.email
-      };
-      this.userService.updateUser(this.uid, updatedUser);
-      this.usernameTaken = false;
-      this.submitSuccess = true;
-      console.log(this.userService.users);
+        const updatedUser: User = {
+            _id: this.user._id,
+            username: this.username,
+            password: this.user.password,
+            firstName: this.firstName,
+            lastName: this.lastName,
+            email: this.email
+        };
+        this.userService.updateUser(this.uid, updatedUser).subscribe(
+            (user2: User) =>{
+                this.usernameTaken = false;
+                this.submitSuccess = true;
+            }
+        );
+        
     }
   }
 

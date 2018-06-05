@@ -22,35 +22,74 @@ export class RegisterComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
+      this.passwordError = false;
+      this.usernameError = false;
   }
 
   register(){
   	this.username = this.registerForm.value.username;
   	this.password = this.registerForm.value.password;
   	this.verifyPassword = this.registerForm.value.verifyPassword;
-  	if(this.password !== this.verifyPassword) {
-  		this.passwordError = true;
-  		this.usernameError = false;
-  	} else {
-  		this.passwordError = false;
-  		const user: User = this.userService.findUserByUsername(this.username);
-  		if(user){
-  			this.usernameError = true;
-  		} else {
-  			this.usernameError = false;
-  			this.passwordError = false;
-  			const newUser: User = {
-  				_id: "",
-				username: this.username,
-				password: this.password,
-				firstName: "",
-				lastName: "",
-				email: ""
-  			};
-  			this.userService.createUser(newUser);
-  			var id: string = this.userService.findUserByUsername(this.username)._id
-  			this.router.navigate(['user', id]);
-  		}
-  	}
+    
+    if(this.password !== this.verifyPassword) {
+        this.passwordError = true;
+    } else {
+        this.passwordError = false;
+        this.userService.findUserByUsername(this.username).subscribe(
+            (user: User) => {
+                this.usernameError = true;
+            },
+            (error: any) => {
+                const newUser: User = {
+                    _id: "",
+                    username: this.username,
+                    password: this.password,
+                    firstName: "",
+                    lastName: "",
+                    email: ""
+                };
+                this.userService.createUser(newUser).subscribe(
+                    (user: User) => {
+                        var id = user._id;
+                        this.router.navigate(['user', id]);
+                    }
+                )
+            }
+        )
+    }
+
+
+
+  	// if(this.password !== this.verifyPassword) {
+  	// 	this.passwordError = true;
+  	// 	this.usernameError = false;
+  	// } else {
+  	// 	this.passwordError = false;
+  	// 	const user: User = this.userService.findUserByUsername(this.username);
+  	// 	if(user){
+  	// 		this.usernameError = true;
+  	// 	} else {
+  	// 		this.usernameError = false;
+  	// 		this.passwordError = false;
+  	// 		const newUser: User = {
+  	// 			_id: "",
+			// 	username: this.username,
+			// 	password: this.password,
+			// 	firstName: "",
+			// 	lastName: "",
+			// 	email: ""
+  	// 		};
+  	// 		this.userService.createUser(newUser).subscribe(
+   //        (user: User) => {
+   //          var id: string = this.userService.findUserByUsername(this.username)._id
+   //          this.router.navigate(['user', id]);
+   //        },
+   //        (error: Error) => {
+   //          this.usernameError = true;
+   //        }
+   //      )
+  			
+  	// 	}
+  	// }
   }
 }
