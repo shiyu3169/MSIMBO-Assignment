@@ -14,14 +14,21 @@ export class ProfileComponent implements OnInit {
   @ViewChild('f') profileForm;
 
   uid: string;
-  user: User;
-  username: string;
-  email: string;
-  firstName: string;
-  lastName: string;
+  username: string ='1';
+  email: string = '1';
+  firstName: string ='1';
+  lastName: string = '1';
   oldUsername: string;
   usernameTaken: boolean;
   submitSuccess: boolean;
+  user: User = {
+    _id: "",
+    username: '',
+    password: '',
+    firstName: '',
+    lastName: '',
+    email: ''
+   };
   aUser: User;
 
   constructor(private activatedRoute: ActivatedRoute, private userService: UserService) { }
