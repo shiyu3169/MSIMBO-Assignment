@@ -19,6 +19,7 @@ import { WidgetEditComponent } from './components/widget/widget-edit/widget-edit
 import { WidgetHeaderComponent } from './components/widget/widget-edit/widget-header/widget-header.component';
 import { WidgetImageComponent } from './components/widget/widget-edit/widget-image/widget-image.component';
 import { WidgetYoutubeComponent } from './components/widget/widget-edit/widget-youtube/widget-youtube.component';
+import { FlickrImageSearchComponent } from './components/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component';
 
 import { Routing } from './app.routing';
 
@@ -26,6 +27,7 @@ import { UserService } from './services/user.service.client';
 import { WebsiteService } from './services/website.service.client';
 import { PageService } from './services/page.service.client';
 import { WidgetService } from './services/widget.service.client';
+import {FlickrService} from './services/flickr.service.client'
 
 
 
@@ -46,16 +48,16 @@ import { WidgetService } from './services/widget.service.client';
     WidgetEditComponent,
     WidgetHeaderComponent,
     WidgetImageComponent,
-    WidgetYoutubeComponent
+    WidgetYoutubeComponent,
+    FlickrImageSearchComponent
   ],
   imports: [
     BrowserModule,
     Routing,
     FormsModule,
     HttpModule
-
   ],
-  providers: [UserService, WebsiteService, PageService, WidgetService],
+  providers: [UserService, WebsiteService, PageService, WidgetService, FlickrService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

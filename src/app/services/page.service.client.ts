@@ -26,6 +26,7 @@ export class PageService {
 	// retrieves the pages in local pages array whose websiteId matches the parameter websiteId
 	findPageByWebsiteId(websiteId : string) {
 		const url = this.baseUrl + '/api/website/'+ websiteId +'/page';
+		console.log(this.http.get(url));
 		return this.http.get(url).pipe(map(
 			(response: Response) => {
 				return response.json();
