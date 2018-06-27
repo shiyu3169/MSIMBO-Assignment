@@ -35,9 +35,8 @@ export class WebsiteNewComponent implements OnInit {
   		this.name = this.websiteForm.value.name;
   		this.description = this.websiteForm.value.description;
   		const newWebsite: Website = {
-  			_id: "",
   			name: this.name,
-  			developerId: "",
+  			developerId: this.uid,
   			description: this.description
   		};
 
