@@ -19,7 +19,6 @@ export class PageEditComponent implements OnInit {
   name: string;
   description: string;
   page: Page = {
-    _id: "",
     websiteId: "",
     name: "",
     description: ""
