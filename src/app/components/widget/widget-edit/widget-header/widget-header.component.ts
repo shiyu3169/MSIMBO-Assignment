@@ -18,7 +18,6 @@ export class WidgetHeaderComponent implements OnInit {
   pid: string;
   wgid: string;
   widget: Widget= {
-      _id: '',
     widgetType: '',
     pageId: ''
   };
