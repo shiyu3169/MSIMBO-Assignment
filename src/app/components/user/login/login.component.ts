@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms'
 import {UserService} from '../../../services/user.service.client'
-
+import { SharedService } from '../../../services/shared.service.client'
 import { User } from '../../../models/user.model.client'
 import { Router } from '@angular/router'
 
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   // userService: UserService;
   // router: Router;
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private sharedService: SharedService, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -29,20 +29,33 @@ export class LoginComponent implements OnInit {
     // console.log(this.loginForm.value.username);
   	this.username = this.loginForm.value.username;
   	this.password = this.loginForm.value.password;
-
-  	this.userService.findUserByCredentials(this.username, this.password).subscribe(
-      (user: User) => {
-        if(user){
-          this.errorFlag = false;
-          this.router.navigate(['user', user._id]);
-        } else {
-          this.errorFlag = true;
-        }
-      },
-      (error: any) => {
-        this.errorFlag = true;
-      }
-    )
+    this.userService.login(this.username, this.password).subscribe(
+     (user: User) => {
+       if(!user) {
+         this.errorFlag = true;
+       } else {
+         this.errorFlag = false;
+         this.sharedService.user = user;
+         this.router.navigate(['user']);
+       }
+     },
+     (error: any) => {
+       this.errorFlag = true;
+     }
+   );
+  	// this.userService.findUserByCredentials(this.username, this.password).subscribe(
+   //    (user: User) => {
+   //      if(user){
+   //        this.errorFlag = false;
+   //        this.router.navigate(['user', user._id]);
+   //      } else {
+   //        this.errorFlag = true;
+   //      }
+   //    },
+   //    (error: any) => {
+   //      this.errorFlag = true;
+   //    }
+   //  )
   }
 
 }

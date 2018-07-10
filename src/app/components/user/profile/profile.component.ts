@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router'
 import { UserService } from '../../../services/user.service.client'
 import { User } from '../../../models/user.model.client'
 import { NgForm } from '@angular/forms'
+import { SharedService } from '../../../services/shared.service.client'
 
 @Component({
   selector: 'app-profile',
@@ -22,7 +23,6 @@ export class ProfileComponent implements OnInit {
   usernameTaken: boolean;
   submitSuccess: boolean;
   user: User = {
-    _id: "",
     username: '',
     password: '',
     firstName: '',
@@ -31,41 +31,17 @@ export class ProfileComponent implements OnInit {
    };
   aUser: User;
 
-  constructor(private activatedRoute: ActivatedRoute, private userService: UserService) { }
+  constructor(private sharedService: SharedService, private activatedRoute: ActivatedRoute, private userService: UserService) { }
 
   ngOnInit() {
-  	// this.activatedRoute.params.subscribe(
-  	// 	function info(params){
-  	// 		this.uid = params['uid'];
-  	// 		this.user = this.userService.findUserById(this.uid);
-  	// 		this.username = this.user.username;
-  	// 		this.email = this.user.email;
-  	// 		this.firstName = this.user.firstName;
-  	// 		this.lastName = this.user.lastName;
-  	// }.bind(this));
     this.usernameTaken = false;
     this.submitSuccess = false;
-    this.activatedRoute.params.subscribe(
-      params =>  {
-        this.uid = params['uid'];
-        // console.log(this.uid);
-        this.userService.findUserById(this.uid).subscribe(
-          (user: User) => {
-            this.user = user;
-            this.username = this.user.username;
-            this.email = this.user.email;
-            this.firstName = this.user.firstName;
-            this.lastName = this.user.lastName;
-            this.oldUsername = this.user.username;
-          }
-        );
-        // this.user = this.userService.findUserById(this.uid);
-        // this.username = this.user.username;
-        // this.email = this.user.email;
-        // this.firstName = this.user.firstName;
-        // this.lastName = this.user.lastName;
-        // this.oldUsername = this.user.username;
-      })
+    this.user = this.sharedService.user;
+    this.username = this.user.username;
+    this.email = this.user.email;
+    this.firstName = this.user.firstName;
+    this.lastName = this.user.lastName;
+    this.oldUsername = this.user.username;
   }
 
   update(){
@@ -80,11 +56,10 @@ export class ProfileComponent implements OnInit {
            this.aUser = user;
        }
     );
-
     if(this.aUser && this.oldUsername !== this.username){
         this.usernameTaken = true;
         this.submitSuccess = false;
-    } else {
+    } else {;
         const updatedUser: User = {
             _id: this.user._id,
             username: this.username,
@@ -93,7 +68,7 @@ export class ProfileComponent implements OnInit {
             lastName: this.lastName,
             email: this.email
         };
-        this.userService.updateUser(this.uid, updatedUser).subscribe(
+        this.userService.updateUser(this.user._id, updatedUser).subscribe(
             (user2: User) =>{
                 this.usernameTaken = false;
                 this.submitSuccess = true;
