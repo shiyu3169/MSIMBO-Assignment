@@ -23,7 +23,7 @@
 				<input class="form-control" type="text" name="lastName" ngModel="{{user.lastName}}" #lastname="ngModel" placeholder="Wang">
 			</div>
 			<a class="btn btn-primary btn-block" routerLink="/user/{{uid}}/website">Websites</a>
-			<a class="btn btn-danger btn-block" routerLink="/login">Logout</a>
+			<a (click)="logout()" class="btn btn-danger btn-block" >Logout</a>
 		</form>
 	</div>
 	<nav class="navbar navbar-dark bg-primary fixed-bottom">
