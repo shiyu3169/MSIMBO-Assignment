@@ -53,6 +53,10 @@
 						allowfullscreen></iframe>
 					</div>
 				</div>
+				<!-- HTML -->
+				<div *ngSwitchCase="'HTML'">
+					<div [innerHTML]="parseHTML(widget.text)">
+				</div>
 			</div>
 		</div>
 	</div>

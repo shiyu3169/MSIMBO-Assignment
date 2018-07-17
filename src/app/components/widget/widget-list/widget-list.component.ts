@@ -41,4 +41,9 @@ export class WidgetListComponent implements OnInit {
   	return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
   }
 
+  parseHTML(text) {
+    var parsedText = text.replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+    return parsedText;
+  }
+
 }

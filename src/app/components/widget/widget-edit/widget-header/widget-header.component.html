@@ -24,7 +24,14 @@
 
 			<div class="form-group">
 				<label><b>Size</b></label>
-				<input class="form-control" type="number" name="size" ngModel="{{widget.size}}" required #size="ngModel" placeholder="Enter your widget text...">
+				<select class="form-control" type="number" name="size" ngModel="{{widget.size}}" required #size="ngModel" placeholder="Enter your widget text...">
+					<option value=1>1</option>
+					<option value=2>2</option>
+					<option value=3>3</option>
+					<option value=4>4</option>
+					<option value=5>5</option>
+					<option value=6>6</option>
+				</select>
 			</div>
 			<div class="alert alert-danger" *ngIf="size.invalid && size.touched">Size can't be empty!</div>
 			<button [disabled]="f.invalid" class="btn btn-primary btn-block" type="submit">Submit</button>

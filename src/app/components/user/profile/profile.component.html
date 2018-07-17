@@ -10,6 +10,9 @@
 				<label for="username"><b>Username</b></label>
 				<input class="form-control" type="text" name="username" required ngModel="{{user.username}}" #username="ngModel" placeholder="example">
 			</div>
+			
+			<span class="alert" *ngIf="username.invalid && username.touched">Please enter username!</span>
+
 			<div class="form-group">
 				<label for="email"><b>Email</b></label>
 				<input class="form-control" type="email" name="email" ngModel="{{user.email}}" #email="ngModel" placeholder="example@email.com">

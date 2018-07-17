@@ -1,0 +1,34 @@
+<!-- Navbar -->
+<nav class="navbar fixed-top navbar-light sw-bg-grey">
+	<a class="sw-color-black" routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"><i class="fas fa-chevron-left"></i></a>
+	<div class="sw-90-width">
+		<a class="navbar-brand float-left" routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new"><b>Edit Widget</b></a>
+	</div>
+	<button [disabled]="f.invalid" type="submit" form="widgetForm" class="btn sw-button-to-a sw-color-black float-right" ><i class="fas fa-check"></i></button>
+</nav>
+
+<!-- form -->
+	<div class="container-fluid">
+		<form id="widgetForm" (ngSubmit)="update()" #f="ngForm">
+			
+			<div class="form-group">
+				<label><b>Name</b></label>
+				<input class="form-control" type="text" name="name" ngModel="{{widget.name}}" #name="ngModel" placeholder="Enter your widget name...">
+			</div>
+			
+			<div class="form-group">
+				<label><b>Text</b></label>
+				<quill-editor name="text" ngModel="{{widget.text}}" required #text="ngModel"></quill-editor>
+			</div>
+			<button [disabled]="f.invalid" class="btn btn-primary btn-block" type="submit">Submit</button>
+			<button type="button" class="btn btn-danger btn-block" (click)="remove()" >Delete</button>
+		</form>
+	</div>
+
+
+<!-- footer -->
+<footer class="navbar fixed-bottom navbar-light sw-bg-grey">
+	<div class="sw-full-width">
+		<a class="navbar-brand float-right" routerLink="/user/:uid"><i class="fas fa-user"></i></a>
+	</div>
+</footer>
