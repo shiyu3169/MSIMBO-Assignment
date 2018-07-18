@@ -55,7 +55,20 @@
 				</div>
 				<!-- HTML -->
 				<div *ngSwitchCase="'HTML'">
-					<div [innerHTML]="parseHTML(widget.text)">
+					<div [innerHTML]="parseHTML(widget.text)"></div>
+				</div>
+				<!-- TEXT Input -->
+				<div *ngSwitchCase="'TEXT'">
+					
+					<div *ngIf='widget.formatted'>
+						<quill-editor [(ngModel)]="widget.text"></quill-editor>
+					</div>
+					<div *ngIf="!widget.formatted && (widget.rows===1 || !widget.rows)">
+						<input type="text" name="text" placeholder="{{widget.placeholder}}" value="{{widget.text}}" class="form-control">
+					</div>
+					<div *ngIf="!widget.formatted && widget.rows>1">
+						<textarea placeholder='{{widget.placeholder}}' rows="{{widget.rows}}" class="form-control">{{widget.text}}</textarea>
+					</div>
 				</div>
 			</div>
 		</div>

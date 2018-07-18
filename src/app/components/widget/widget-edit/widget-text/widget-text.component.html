@@ -1,0 +1,40 @@
+<!-- Navbar -->
+<nav class="navbar fixed-top navbar-light sw-bg-grey">
+	<a class="sw-color-black" routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"><i class="fas fa-chevron-left"></i></a>
+	<div class="sw-90-width">
+		<a class="navbar-brand float-left" routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new"><b>Edit Widget</b></a>
+	</div>
+	<button [disabled]="f.invalid" type="submit" form="widgetForm" class="btn sw-button-to-a sw-color-black float-right" ><i class="fas fa-check"></i></button>
+</nav>
+
+<!-- form -->
+<div class="container-fluid">
+	<form (ngSubmit)="update()" id="widgetForm" #f="ngForm">
+		<div class="form-group">
+			<label>Name</label>
+			<input class="form-control" type="text" name="name" placeholder="Name of the widget" ngModel="{{widget.name}}" #name="ngModel">
+		</div>
+		<div class="form-group">
+			<label>Rows</label>
+			<input class="form-control" type="number" name="rows" placeholder="Number of rows" ngModel="{{widget.rows}}" #rows="ngModel">
+		</div>
+		<div class="form-group">
+			<label>Placeholder</label>
+			<input class="form-control" type="text" name="placeholder" placeholder="placeholer of the widget" ngModel="{{widget.placeholder}}" #placeholder="ngModel">
+		</div>
+		<div class="form-group">
+			<label>Formatted</label>
+			<input type="checkbox" name="formatted" ngModel="{{widget.formatted}}" #formatted="ngModel">
+		</div>
+		<button (click)="remove()" class="btn btn-danger btn-block" type="button">Delete</button>
+		<button routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget" class="btn btn-warning btn-block" type="button">Cancel</button>
+	</form>
+</div>
+
+
+<!-- footer -->
+<footer class="navbar fixed-bottom navbar-light sw-bg-grey">
+	<div class="sw-full-width">
+		<a class="navbar-brand float-right" routerLink="/user/:uid"><i class="fas fa-user"></i></a>
+	</div>
+</footer>
