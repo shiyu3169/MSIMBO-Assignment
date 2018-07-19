@@ -52,3 +52,75 @@ a:hover{
 .sw-front{
 	z-index: 2
 }
+
+/*.animate-bottom {
+	position: relative;
+	animation: hello 0.3s;
+}
+
+@keyframes hello {
+	from{left:-300px; opacity: 0;}
+	to{left:0; opacity: 1;}
+}*/
+
+/*.animate-fading{
+	animation: fading 0.5s;
+}
+
+@keyframes fading{
+	from{transform: scale(0.5);}
+	to{transform: scale(1);}
+}
+.w3-animate-fading{animation:fading 10s infinite}
+@keyframes fading{0%{opacity:0}50%{opacity:1}100%{opacity:0}}
+.w3-animate-opacity{animation:opac 0.8s}
+@keyframes opac{from{opacity:0} to{opacity:1}}
+.w3-animate-top{position:relative;animation:animatetop 0.4s}
+@keyframes animatetop{from{top:-300px;opacity:0} to{top:0;opacity:1}}
+.w3-animate-left{position:relative;animation:animateleft 0.4s}
+@keyframes animateleft{from{left:-300px;opacity:0} to{left:0;opacity:1}}
+.w3-animate-right{position:relative;animation:animateright 0.4s}
+@keyframes animateright{from{right:-300px;opacity:0} to{right:0;opacity:1}}
+.w3-animate-bottom{position:relative;animation:animatebottom 0.4s}
+@keyframes animatebottom{from{bottom:-300px;opacity:0} to{bottom:0;opacity:1}}
+.w3-animate-zoom {animation:animatezoom 0.6s}
+@keyframes animatezoom{from{transform:scale(0)} to{transform:scale(1)}}
+*/
+
+
+
+.loading-iframe{
+	background:url(assets/loading-gif-1.gif) center center no-repeat;
+
+}
+
+.loader {
+	border: 16px solid #f3f3f3;
+	border-top: 16px solid #3498db;
+	border-bottom: 16px solid #3498db;
+	border-right: 16px solid green;
+	border-left: 16px solid red;
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% {transform: rotate(360deg);}
+}
+
+.sw-parallax {
+    /* The image used */
+    /*background-image: url("assets/uploads/bg1.jpg");*/
+    /* Set a specific height */
+    min-height: 650px;
+    width: 100%; 
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    opacity: 0.5;
+}

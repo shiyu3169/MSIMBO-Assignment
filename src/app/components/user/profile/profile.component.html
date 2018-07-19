@@ -2,7 +2,7 @@
 		<a class="navbar-brand" routerLink="user/:uid"><b>Profile</b></a>
 		<button class="btn sw-color-white sw-button-to-a" type="submit" form="profileForm" [disabled]="f.invalid"><i class="fas fa-check"></i></button>
 	</nav>
-	<div class="container-fluid">
+	<div class="container-fluid animate-fading">
 		<div *ngIf="usernameTaken" class="alert alert-danger">Username is taken, please try another one.</div>
 		<div *ngIf="submitSuccess" class="alert alert-success">Update successfully!</div>
 		<form (ngSubmit)="update()" id="profileForm" #f="ngForm">

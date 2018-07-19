@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid animate-fading">
 	<h1>Login</h1>
 	<div *ngIf="errorFlag" class="alert alert-danger">Invalid username or password</div>
 	<form (ngSubmit)="login()" #f="ngForm">
@@ -14,3 +14,4 @@
 		<button class="btn btn-success btn-block" routerLink="/register">Register</button>
 	</form>
 </div>
+<div class="loader"></div>
