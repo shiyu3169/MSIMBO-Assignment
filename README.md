@@ -1,4 +1,6 @@
-# Assignment
+#MSIMBO-Assignment
+
+This is a project about making a web maker that allowing users to generate website without coding
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
